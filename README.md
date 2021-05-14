@@ -7,7 +7,7 @@ It turns out there is: source control management system.
 Nowadays most the teams are using some form of pull request workflow to ensure proper code review and code quality.
 From those reviews, we can extract many useful comments and discussions, giving us great insight and additional context for the code.
 We just need to process them and find a way to make them much easier to explore.
-![1.gif](imgs/1.gif)
+![1.gif](https://raw.githubusercontent.com/VirtusLab/codetale/master/imgs/1.gif)
 
 ## Documentation living with the code
 If we want documentation to be very accessible for every developer, we should provide it as part of the environment they are working in, usually it means some kind of editor or IDE.
@@ -19,7 +19,7 @@ Thanks to that developer is always aware of past problems and considerations con
 Furthermore, the implemented system intelligently links comments and discussions with the existing code regardless of new commits, branch changes, or changes in the code.
 Because of that developer does not have to track changes through history manually, but is always able to find the relevant part of the information immediately.
 
-![2.gif](imgs/2.gif)
+![2.gif](https://raw.githubusercontent.com/VirtusLab/codetale/master/imgs/2.gif)
 
 ## Discuss the code with your colleagues online
 
@@ -71,7 +71,7 @@ To keep discussions in the same repository as your code, simply create a new bra
 If you choose to host them externally, create a new repository on the same platform as your code repository.
 To populate the repository with discussions from pull-requests in your project, refer to Exporting comments from an existing project section below.
 
-![settings](imgs/settings.png)
+![settings](https://raw.githubusercontent.com/VirtusLab/codetale/master/imgs/settings.png)
 
 **Plugin**
 
@@ -141,11 +141,11 @@ The repository you keep your code in.
 
 In IntelliJ IDEA look for "CodeTale" tab in Tool Windows Bar on the right and click it to open the CodeTale panel.
 
-![intellij](imgs/intellij.png)
+![intellij](https://raw.githubusercontent.com/VirtusLab/codetale/master/imgs/intellij.png)
 
 In Visual Studio Code you will find it in the bottom right, or you can click the CodeTale logo on the sidepanel on the left to display a button, which will open the extension panel.
 
-![vsc](imgs/vscode.png)
+![vsc](https://raw.githubusercontent.com/VirtusLab/codetale/master/imgs/vscode.png)
 
 ## Browsing discussions
 
@@ -154,28 +154,28 @@ Only the first comment in the discussion is displayed, when inactive.
 Click the cloud button to expand the responses to that discussion, or the  "Reply" button to write your own response.
 When you bring a discussion into focus, the corresponding lines of code to  which the discussion refers to will be highlighted.
 
-![browse](imgs/browse.png)
+![browse](https://raw.githubusercontent.com/VirtusLab/codetale/master/imgs/browse.png)
 
 ## Writing a comment
 
 Clicking the "Reply" button brings up an editor field. Tag other developers and use markup, code blocks and emojis to craft your reply and once you are ready click "Submit" to send the comment.
 
-![reply](imgs/reply.png)
+![reply](https://raw.githubusercontent.com/VirtusLab/codetale/master/imgs/reply.png)
 
 ## Creating a new discussion
 
 Whenever you select a snippet of text or code, a cloud button will appear in the bottom left corner of the CodeTale panel. Click it to start a new discussion. Like with a comment, write your question or insight about the code in the editor field and click "Submit" to confirm.
 
-![discussion](imgs/discussion1.png)
-![discussion](imgs/discussion2.png)
+![discussion](https://raw.githubusercontent.com/VirtusLab/codetale/master/imgs/discussion1.png)
+![discussion](https://raw.githubusercontent.com/VirtusLab/codetale/master/imgs/discussion2.png)
 
 # Integration with a VCS platform
 ## Exporting discussions from an existing project
 
 To take full advantage of CodeTale's capabilities and view the discussions of the past pull-requests, you will need to export these discussions from the platform of your choice to the branch you chose to host the CodeTale data (see [Configuration](#configuration)). That will bring valuable insight into your usual interaction with your project's codebase.
 
-![pr](imgs/pr1.png)
-![pr](imgs/pr2.png)
+![pr](https://raw.githubusercontent.com/VirtusLab/codetale/master/imgs/pr1.png)
+![pr](https://raw.githubusercontent.com/VirtusLab/codetale/master/imgs/pr2.png)
 
 To export the discussions from GitHub, GitLab, Bitbucket Cloud or Bitbucket Enterprise you can use CodeTale Converter available for download as a Maven package, or a Docker image.
 
