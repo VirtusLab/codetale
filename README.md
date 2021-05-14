@@ -1,4 +1,4 @@
-# CodeTale
+# CodeTale - a solution for discussing your code & browsing discourses
 ## Tap into existing knowledge sources
 
 Different companies and teams are using various tools for collaboration and knowledge sharing.
@@ -203,6 +203,8 @@ java -jar converter-0.1.jar -t GithubPersonalAccessToken github https://github.c
 To specify other branch, please add option -b <branch_name> as in the first example.
 #### Comments in a different repository, on a different server
 Case when source repository is i.e. on `github.com` and you want to store comments in `gitlab.com`.
+
+⚠ CodeTale plugin requires the source repository and comments repository to be on the same server. Use this option ony if you intend to work with a fork of the source repository, hosted on the same server as comments!
 ```bash
 java -jar converter-0.1.jar -i GithubPersonalAccessToken -o GitlabPersonalAccessToken github https://github.com/username/repository https://gitlab.com/username/repoForComments
 ```
