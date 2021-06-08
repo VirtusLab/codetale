@@ -30,6 +30,8 @@ To view and answer it, developers won’t need to leave their IDE — they can u
 
 Furthermore, discussions like that, regarding general issues, could be later explored by other developers, so knowledge is not lost and does not have to be rediscovered later.
 
+![3.gif](https://raw.githubusercontent.com/VirtusLab/codetale/master/imgs/3.gif)
+
 # Table of Contents
 
 - [Installing and configuring the extension](#installing-and-configuring-the-extension)
