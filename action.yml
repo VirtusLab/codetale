@@ -1,0 +1,22 @@
+name: 'CodeTale Converter'
+description: 'Convert merged pull-request comments for integration with CodeTale plugin'
+author: 'VirtusLab'
+branding:
+  icon: 'book-open'
+  color: 'green'
+inputs:
+  githubToken:
+    description: 'Github token'
+    required: true
+  branch:
+    description: 'Comments branch'
+    default: 'codetale_comments'
+  prNumber:
+    description: 'Id of the pull-request to convert'
+    default: '${{ github.event.number }}'
+  outputRepository:
+    description: 'URL of the repository containing converted comments'
+    default: ''
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
