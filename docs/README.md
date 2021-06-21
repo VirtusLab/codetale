@@ -56,6 +56,8 @@ Furthermore, discussions like that, regarding general issues, could be later exp
             - [Using an image](#using-an-image)
 - [Contact us](#contact-us)
 
+[Plugin homepage](https://virtuslab.github.io/codetale/)
+
 # Installing and configuring the extension
 ## Installation
 
@@ -282,11 +284,66 @@ Authorization:
   So last line should include
   `-i ${{ secrets.INPUT_REPO_TOKEN_VARIABLE }} -o ${{ secrets.OUTPUT_REPO_TOKEN_VARIABLE }} -b BRANCH_FOR_COMMENTS ...`
 
-#### Using Maven package
 
-Paste and fill below yaml file to file in `.github/workflows` folder in your repository.
+Paste and fill chosen yaml file to file in `.github/workflows` folder in your repository.
 Most of the script is ready, please pay attention to the last command.
 
+#### Using GitHub Action
+
+```yaml
+name: Codetale comments convertion
+
+on:
+  pull_request:
+    types: [closed]
+
+jobs:
+  convert:
+    if: github.event.pull_request.merged == true
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Run converter
+        uses: VirtusLab/codetale@master
+        with:
+          githubToken: ${{ secrets.GITHUB_TOKEN }}
+          branch: codetale_comments
+```
+To push converted comments to a repository other than the repository the action is run from, define `outputRepository` option:
+```yaml
+    steps:
+      - name: Run converter
+        uses: VirtusLab/codetale@master
+        with:
+          githubToken: ${{ secrets.GITHUB_TOKEN }}
+          branch: codetale_comments
+          outputRepository: https://github.com/other/repository
+```
+
+#### Using an image
+
+```yaml
+name: CodeTale comments convertion
+
+on:
+  pull_request:
+    types: [closed]
+
+jobs:
+  convert:
+    if: github.event.pull_request.merged == true
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Run converter
+        uses: docker://registry.gitlab.com/codetaleintegration/codetale-converter:0.1
+        with:
+          args: -t ${{ secrets.GITHUB_TOKEN }} -b BRANCH_FOR_COMMENTS -s ${{ github.event.number }} -e ${{ github.event.number }} github SOURCE_REPOSITORY_ADDRESS DESTINY_REPOSITORY_ADDRESS_OPTIONAL
+```
+
+#### Using Maven package
 
 ```yaml
 name: CodeTale comments convertion
@@ -321,32 +378,6 @@ jobs:
         run: echo "::set-env name=PR_NUMBER::${{ github.event.number }}"
       - name: Run converter
         run: java -jar converter-0.1.jar -t ${{ secrets.GITHUB_TOKEN }} -b BRANCH_FOR_COMMENTS -s ${{ github.event.number }} -e ${{ github.event.number }} github SOURCE_REPOSITORY_ADDRESS DESTINY_REPOSITORY_ADDRESS_OPTIONAL
-```
-
-#### Using an image
-
-Paste and fill below yaml file to file in `.github/workflows` folder in your repository.
-Most of the script is ready, please pay attention to the last command.
-
-
-```yaml
-name: CodeTale comments convertion
-
-on:
-  pull_request:
-    types: [closed]
-
-jobs:
-  convert:
-    if: github.event.pull_request.merged == true
-
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Run converter
-        uses: docker://registry.gitlab.com/codetaleintegration/codetale-converter:0.1
-        with:
-          args: -t ${{ secrets.GITHUB_TOKEN }} -b BRANCH_FOR_COMMENTS -s ${{ github.event.number }} -e ${{ github.event.number }} github SOURCE_REPOSITORY_ADDRESS DESTINY_REPOSITORY_ADDRESS_OPTIONAL
 ```
 
 # Contact us
