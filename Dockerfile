@@ -1,4 +1,4 @@
-FROM registry.gitlab.com/codetaleintegration/codetale-converter:0.1
+FROM registry.gitlab.com/codetaleintegration/codetale-converter:0.2.3
 
 LABEL "com.github.actions.name"="CodeTale Converter"
 LABEL "com.github.actions.description"="Convert merged pull-request comments for integration with CodeTale plugin"
